@@ -7,10 +7,27 @@
 
 import Foundation
 
-enum Tab: String, CaseIterable {
-    case home = "house"
-    case search = "magnifyingglass"
-    case ranking = "crown"
-    case book = "book"
-    case setting = "gearshape"
+enum Tab: CaseIterable {
+    case home
+    case search
+    case ranking
+    case book
+    case setting
+}
+// MARK: - SF Symbols Name
+extension Tab {
+    func symbolName() -> String {
+        switch self {
+        case .home:
+            return "house"
+        case .search:
+            return "magnifyingglass"
+        case .ranking:
+            return "crown"
+        case .book:
+            return "book"
+        case .setting:
+            return "gearshape"
+        }
+    }
 }

@@ -17,13 +17,13 @@ struct CustomTabBar: View {
             let width = proxy.size.width
 
             HStack(spacing: 0) {
-                ForEach(Tab.allCases, id: \.rawValue) { tab in
+                ForEach(Tab.allCases, id: \.hashValue) { tab in
                     Button {
                         withAnimation(.easeInOut(duration: 0.2)) {
                             currentTab = tab
                         }
                     } label: {
-                        Image(systemName: tab.rawValue)
+                        Image(systemName: tab.symbolName())
                             .renderingMode(.template)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -38,8 +38,8 @@ struct CustomTabBar: View {
                 Circle()
                     .fill(.orange)
                     .frame(width: 25, height: 25)
-                    .offset(x: 20) // ◯の初期x座標
-                    .offset(x: indicatorOffset(width: width)) // ◯の移動x座標
+                    .offset(x: 20) // 初期x座標
+                    .offset(x: indicatorOffset(width: width)) // 移動後x座標
             }
         }
         .frame(height: 30)
